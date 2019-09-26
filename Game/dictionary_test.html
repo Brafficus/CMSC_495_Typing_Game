@@ -1,0 +1,17 @@
+<script type="text/javascript" src="DictionaryPull.js"></script>
+<script type="text/javascript" src="DictionaryPullTest.js"></script>
+
+<iframe id="frmFile" src="words_dictionary_sorted.json" onload="LoadFile();" style="display: none;"></iframe>
+
+<body>
+	Level (1-10):
+	<input type="text" id="level" />
+	<br /><br />
+	<button onClick="pullWords()">Pull Words</button>
+	<br />
+	<textarea id="words" rows="10" cols="15"></textArea>
+	<br /><br />
+	<button onClick="pullSingleWord()">Pull One Word</button>
+	<br />
+	<input type="text" id="singleWord" />
+</body>
