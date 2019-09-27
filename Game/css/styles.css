@@ -1,0 +1,90 @@
+/* * * * * * * * * * * * * * * * *
+ *    CMST 495 6380 Group 2      *
+ * * * * * * * * * * * * * * * * *
+ *
+ * Name: styles.css
+ * Author: Thuan Bui, Christopher Sankey, Nathan Woodson, Danny Ramirez
+ * Description:
+ *
+ */
+
+/* General */
+body {
+  font-family: 'Patrick Hand', cursive;
+  color: #333333;
+  font-size: 1.2rem;
+  /* background-color: #fbcb1c; */
+}
+
+/* Layout */
+#wrapper {
+  display: grid;
+  grid-template-columns: 1fr; 
+  grid-gap: 1em;
+  grid-auto-rows: minmax(100px, auto);
+  justify-items: center;
+}
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 6em;
+  grid-auto-columns: minmax(400px, auto);
+  text-align: center;
+}
+
+/* Stats */
+h1 {
+  font-size: 5.2rem;
+}
+h2, .stats-container span {
+  line-height: 0.4;
+  text-transform: uppercase;
+}
+h2 {
+  font-size: 2.5rem;
+}
+.timer-title, .timer {
+  font-size: 3rem;
+}
+span {
+  font-size: 2.1rem;
+  color: #444444;
+}
+.align-start {
+  align-self: start;
+}
+.align-center {
+  align-self: center;
+}
+.align-end {
+  align-self: end;
+}
+
+/* Input */
+.input-box {
+  outline: none;
+  font-size: 1.8rem;
+  text-align: center;
+  border: 3px solid #333333;
+  border-radius: 4px;
+  padding: 10px 20px;
+  min-width: 50%;
+}
+
+/* Instructions */
+.icon-info {
+  display: block;
+  cursor: pointer;
+}
+.instructions-container {
+  text-align: center;
+}
+.instructions-title {
+  color: #333333;
+  font-size: 1.3rem;
+}
+
+/* Footer */
+footer {
+  color: #777777;
+}
