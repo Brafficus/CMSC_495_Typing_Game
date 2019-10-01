@@ -1,0 +1,123 @@
+<!--
+Date: September 29, 2019
+Author: Nathan Woodson
+Purpose: Contains the subsystem score 
+& timer for the typing game.
+Revision: 4
+
++-----------------------------------------------------------------------------------------+
+|                                      Revision Table                                     |
++------------+-----------+--------------------------------------------------+-------------+
+| Revision # |    Date   |              Description of Changes              | Team Member |
++------------+-----------+--------------------------------------------------+-------------+
+|      1     | 9/24/2019 |              Started on timer class              |    Nathan   |
++------------+-----------+--------------------------------------------------+-------------+
+|      2     | 9/25/2019 |  Tested timer class and started on score class.  |    Nathan   |
++------------+-----------+--------------------------------------------------+-------------+
+|      3     | 9/26/2019 | Test timer and score class.  Updated timer class |    Nathan   |
+|            |           |             based on input from Chris            |             |
++------------+-----------+--------------------------------------------------+-------------+
+|      4     | 9/27/2019 |       Edit code, enter comments, and header      |    Nathan   |
++------------+-----------+--------------------------------------------------+-------------+
+
+-->
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Typing Game Score and Timer Subclass</h2>
+
+<p>Score</p>
+<!--buttons for testing-->
+<input type="text" id="score" />
+<p><button onclick="score.addPoints(10)">Add 10 Points</button></p>
+    
+<script>
+//Score class
+class Score {
+  currentScore;
+  constructor() {
+    this.currentScore = 0;
+    //For use in testing
+    document.getElementById("score").value = this.currentScore;
+  }
+  //add points method
+  addPoints(points) {
+    this.currentScore += points;
+    //For use in testing
+    document.getElementById("score").value = this.currentScore;
+    //call method to display
+    //Display.displayScore(this.currentScore);
+  }    
+}
+
+const score = new Score();
+
+</script>
+
+
+
+
+<p>Timer</p>
+
+<input type="text" id="time" />
+<!--buttons for testing-->
+<p><button onclick="timer.start()">Start Timer</button>
+    <button onclick="timer.addSeconds(10)">Add 10 Seconds</button></p>
+
+<script>
+
+//Timer Class
+class Timer {
+  seconds;
+  started;
+  //constructor
+  constructor(seconds) {
+    this.seconds = seconds;
+    document.getElementById("time").value = this.seconds;
+    this.started = false;
+  }
+  //get time method
+  getTime(){
+    return this.seconds;
+  }
+  //add seconds method
+  addSeconds(sec){
+    this.seconds+=sec;
+  }
+  //stop method
+  stop(){
+    this.started = false;
+  }       
+  
+  //start method
+  start(){
+    //var seconds = 180;
+    this.started = true;
+    
+    //run subTime on 1 sec interval
+    setInterval(function(){timer.subTime();}, 1000);
+  }    
+  
+  //sub 1 second function
+  subTime(){
+    if(this.seconds > 0 && this.started == true){
+      this.seconds--;
+      //For use in testing
+      document.getElementById("time").value = this.seconds;
+      //call method to display
+      //Display.displayTime(seconds);                               
+    } else {
+      //call method to display
+      //Display.displayTime(seconds);
+    }
+  }
+}
+
+const timer = new Timer(180);
+</script>
+
+</body>
+</html>
