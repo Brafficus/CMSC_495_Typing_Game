@@ -2,29 +2,17 @@
  *    CMST 495 6380 Group 2      *
  * * * * * * * * * * * * * * * * *
  *
- * Name: game.js
+ * Name: validator.js
  * Author: Thuan Bui, Christopher Sankey, Nathan Woodson, Danny Ramirez
- * Description:
+ * Description: Takes care of comparing the player's input against the current word.
  *
  */
 
-
-// Global variables
-
-// DOM variables
-const input = document.querySelector('#wordInput');
-const word = document.querySelector('.word');
-
-// Game state
-let gameStarted = false;
-
-
-/**
- * Validator Class
- * 
- * Description: Takes care of comparing the player's input
- * against the current word.
+/* Revision History
+ * 10/1/2019 - Created class using Danny's original work and incorporated it into the site.
+ * (Chris Sankey)
  */
+
 class Validator {
   display;
   word;
@@ -33,7 +21,6 @@ class Validator {
   constructor(display) {
     this.display = display;
     this.level = 0;
-    console.log('Validator ON!');
   }
 
   levelUp() {
@@ -45,14 +32,7 @@ class Validator {
     return this.level;
   }
 
-  /**
-   * Randomly selects a word from the array depending on the 
-   * length of the array.
-   * 
-   * @return {String}
-   */
   setWord(word) {
-    console.log(word);
     this.word = word;
     this.display.displayWord(word);
   }
@@ -64,11 +44,9 @@ class Validator {
    * @return {Boolean}
    */
   checkWord(word) {
-    if (this.word === word) {
-      console.log('Match!');
+    if (this.word.toLowerCase() === word.toLowerCase()) {
       return true;
     } else {
-      console.log('No match...');
       return false;
     }
   }

@@ -2,46 +2,39 @@
  *    CMST 495 6380 Group 2      *
  * * * * * * * * * * * * * * * * *
  *
- * Name: game.js
+ * Name: validator.js
  * Author: Thuan Bui, Christopher Sankey, Nathan Woodson, Danny Ramirez
- * Description:
+ * Description: Takes care of comparing the player's input against the current word.
  *
  */
 
-
-// Global variables
-
-// DOM variables
-const input = document.querySelector('#wordInput');
-const word = document.querySelector('.word');
-
-// Game state
-let gameStarted = false;
-
-
-/**
- * Validator Class
- * 
- * Description: Takes care of comparing the player's input
- * against the current word.
+/* Revision History
+ * 10/1/2019 - Created class using Danny's original work and incorporated it into the site.
+ * (Chris Sankey)
  */
+
 class Validator {
-  constructor() {
-    console.log('Validator ON!');
+  display;
+  word;
+  level;
+
+  constructor(display) {
+    this.display = display;
+    this.level = 0;
   }
 
-  /**
-   * Randomly selects a word from the array depending on the 
-   * length of the array.
-   * 
-   * @return {String}
-   */
-  setWord() {
-    let index = Math.floor(Math.random() * wordList.length);
+  levelUp() {
+    this.level++;
+    this.display.displayLevel(this.level);
+  }
 
-    let newWord = wordList[index];
+  getLevel() {
+    return this.level;
+  }
 
-    return newWord;
+  setWord(word) {
+    this.word = word;
+    this.display.displayWord(word);
   }
 
   /**
@@ -50,136 +43,11 @@ class Validator {
    * 
    * @return {Boolean}
    */
-  checkWord() {
-    if (input.value == word.innerHTML) {
-      console.log('Match!');
+  checkWord(word) {
+    if (this.word.toLowerCase() === word.toLowerCase()) {
       return true;
     } else {
-      console.log('No match...');
       return false;
     }
   }
-
 }
-
-// Instantiate the Validator class
-const validator = new Validator();
-
-
-/**
- * Display Class
- * 
- * Handles all the rendering of the game,\
- */
-class Display {
-
-  constructor() {
-    console.log('Display ON!');
-    // Set the initial timer value
-    this.timer = 60; 
-
-    // Select the proper HTML element for the timer
-    this.timerDisplay = document.querySelector('.timer');
-  }
-
-  /**
-   * Writes the timer on the HTML 
-   */
-  displayTimer() {
-    this.timerDisplay.innerHTML = this.timer;
-  }
-
-  /**
-   * Shows the starting word of the game
-   */
-  displayWord(newWord) {
-    word.innerHTML = newWord;
-  }
-
-  /**
-   * Displays a new word after the user types the word correctly
-   */
-  displayNewWord() {
-    gameStarted = true;
-    if (validator.checkWord()) {
-      word.innerHTML = validator.setWord();
-      resetInput();
-    }
-  }
-
-  /**
-   * Displays the game over message
-   */
-  gameOver() {
-    word.innerHTML = 'Game Over!';
-  }
-
-}
-
-// Instatiates the Display class
-const display = new Display();
-
-/**
- * Game setup method
- * 
- * 
- */
-function setup() {
-  console.log('Loading game...')
-
-  // Shows the first word of the game
-  display.displayWord(validator.setWord());
-
-  // Shows the starting timer
-  display.displayTimer();
-
-
-  // Starts the timer count down (checks every 1 second)
-  setInterval(timerCountdown, 1000);
-
-  // Listens for key inputs
-  input.addEventListener('input', display.displayNewWord);
-
-  console.log('...game loaded!');
-}
-
-
-/**
- * Resets the value of the input box 
- * 
- */
-function resetInput() {
-  input.value = '';
-}
-
-
-/**
- * Starts the timer and changes the game state
- */
-function timerCountdown() {
-  // If the game hasn't started...
-  if (display.timer > 0 && gameStarted) {
-    // ...start the timer
-    display.timer--;
-    // and change the game state
-    gameStarted = true;
-
-    // console.log('Game running!');
-
-    // Otherwise, if the game has ended...
-  } else if (display.timer === 0) {
-    // ...show the game over message
-    display.gameOver();
-
-    // and change the game state
-    gameStarted = false;
-
-    console.log('Game ended!');
-  }
-
-  // Shows the actual timer 
-  display.displayTimer();
-}
-
-// Start the game
-setup();

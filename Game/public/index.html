@@ -8,6 +8,17 @@
  * Description:
  *
  */
+
+/* Revision History
+ * 9/27/2019 - Initially created
+ * (Danny Ramirez)
+ * 
+ * 9/30/2019 - Added IDs to elements so they can be changed by the Display class.
+ * (Chris Sankey)
+ * 
+ * 10/3/2019 - Added difficulty buttons.
+ * (Chris Sankey)
+ */
  -->
 <!DOCTYPE html>
 <html lang="en">
@@ -20,46 +31,60 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
+<script type="text/javascript" src="js/validator.js"></script>
+<script type="text/javascript" src="js/Score.js"></script>
+<script type="text/javascript" src="js/Timer.js"></script>
+<script type="text/javascript" src="js/DictionaryPull.js"></script>
+<script type="text/javascript" src="js/Display.js"></script>
+
 <body>
+  <iframe id="frmFile" src="words_dictionary_sorted.json" onload="LoadFile();" style="display: none;"></iframe>
   <div id="wrapper">
     <div class="stats-container">
       <div class="stats-wpm align-end">
         <h2 class="wpm-title">WPM</h2>
-        <span class="wpm">82</span>
+        <span class="wpm" id="wpm">__</span>
       </div><!-- end .stats-wpm -->
 
       <div class="stats-level align-end">
         <h2 class="level-title">level</h2>
-        <span class="level">3</span>
+        <span class="level" id="level">_</span>
       </div><!-- end .stats-level -->
 
       <div class="stats-timer align-start">
         <h2 class="timer-title">TIMER</h2>
-        <span class="timer">62</span>
+        <span class="timer" id="timer">__</span>
       </div><!-- end .stats-timer -->
 
       <div class="stats-mode align-end">
         <h2 class="mode-title">Mode</h2>
-        <span class="mode">Novice</span>
+        <span class="mode" id="mode">_____</span>
       </div><!-- end .stats-mode -->
 
       <div class="stats-score align-end">
         <h2 class="score-title">Score</h2>
-        <span class="score">99</span>
+        <span class="score" id="score">__</span>
       </div><!-- end. stats-score -->
     </div><!-- end .stats-container -->
 
     <div class="word-container">
-      <h1 class="word">WORD</h1>
+      <h1 class="word" id="word">Loading...</h1>
     </div><!-- end .word-container -->
 
+    <div class="button-container" id="modeButtons">
+      <button onclick="setMode('Easy')">Easy</button>
+      <button onclick="setMode('Medium')">Medium</button>
+      <button onclick="setMode('Hard')">Hard</button>
+    </div>
+
     <div class="input-container">
-      <input type="text" name="wordInput" id="wordInput" class="input-box" placeholder="Start typing here...">
+      <input type="text" name="wordInput" id="wordInput" class="input-box" disabled="true" placeholder="Select a difficulty">
     </div><!-- end .input-container -->
 
     <div class="instructions-container">
-      <i class="material-icons icon-info">info</i>
-      <span class="instructions-title">Instructions</span>
+     <i class="material-icons icon-info">info</i>
+     <a class="link" href="tutorial.html"><span class="instructions-title">Instructions</span></a>
       <p class="instructions">Type the word displayed on the screen as fast as you can, while making as few mistakes as possible.</p>
     </div><!-- end .instructions-container -->
 
@@ -68,7 +93,6 @@
     </footer><!-- end .footer -->
 
   </div><!-- end #wrapper -->
-  <script src="js/wordList.js"></script>
-  <script src="js/validator.js"></script>
 </body>
+<script type="text/javascript" src="js/app.js"></script>
 </html>

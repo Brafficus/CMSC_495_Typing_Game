@@ -1,28 +1,25 @@
-/*
-Date: September 24, 2019
-Author: Chris Sankey
-Purpose: Handles dictionary interactions
-Revision: 3
+/* * * * * * * * * * * * * * * * *
+ *    CMST 495 6380 Group 2      *
+ * * * * * * * * * * * * * * * * *
+ *
+ * Name: DictionaryPull.js
+ * Author: Thuan Bui, Christopher Sankey, Nathan Woodson, Danny Ramirez
+ * Description: Handles dictionary interactions
+ *
+ */
 
-+-----------------------------------------------------------------------------------------+
-|                                      Revision Table                                     |
-+------------+-----------+--------------------------------------------------+-------------+
-| Revision # |    Date   |              Description of Changes              | Team Member |
-+------------+-----------+--------------------------------------------------+-------------+
-|      1     | 9/24/2019 |   Began working on file, created test function   |    Chris    |
-|            |           | to ensure the test HTML file is able to use it.  |             |
-+------------+-----------+--------------------------------------------------+-------------+
-|      2     | 9/25/2019 |   Removed test function, added all necessary     |    Chris    |
-|            |           |  features (ability to set level length, pulling  |             |
-|            |           |   an array of words from the JSON used as our    |             |
-|            |           |   dictionary, pulling a single word from that    |             |
-|            |           |        array, loading the JSON for use)          |             |
-+------------+-----------+--------------------------------------------------+-------------+
-|      3     | 9/30/2019 |   Converted to a class and incorporated into     |    Chris    |
-|            |           |              the rest of the site.               |             |
-+------------+-----------+--------------------------------------------------+-------------+
-
-*/
+/* Revision History
+ * 9/24/2019 - Began working on file, created test function to ensure the test HTML file is able to use it.
+ * (Chris Sankey)
+ * 
+ * 9/25/2019 - Removed test function, added all necessary features (ability to set level length, pulling
+ *             an array of words from the JSON used as our dictionary, pulling a single word from that
+ *             array, loading the JSON for use)
+ * (Chris Sankey)
+ * 
+ * 9/30/2019 - Converted to a class and incorporated into the rest of the site.
+ * (Chris Sankey)
+ */
 
 class DictionaryPull {
   wordList = [];

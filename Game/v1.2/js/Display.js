@@ -1,3 +1,21 @@
+/* * * * * * * * * * * * * * * * *
+ *    CMST 495 6380 Group 2      *
+ * * * * * * * * * * * * * * * * *
+ *
+ * Name: Display.js
+ * Author: Thuan Bui, Christopher Sankey, Nathan Woodson, Danny Ramirez
+ * Description: Handles all changes to the GUI
+ *
+ */
+
+/* Revision History
+ * 9/30/2019 - Created class using Nathan's original work and incorporated it into the site.
+ * (Chris Sankey)
+ * 
+ * 10/3/2019 - Added win message.
+ * (Chris Sankey)
+ */
+
 class Display {
   wpm;
   level;
@@ -22,7 +40,7 @@ class Display {
   }
 
   displayTime(time) {
-    this.timer.innerHTML = time;
+    this.timer.innerHTML = Math.ceil(time);
   }
 
   displayWord(word) {
@@ -30,11 +48,14 @@ class Display {
   }
 
   displayWpm(wpm) {
-    this.wpm.innerHTML = wpm;
+    if(wpm !== Infinity);
+    this.wpm.innerHTML = Math.ceil(wpm);
   }
 
   displayLevel(level) {
-    this.level.innerHTML = level;
+    if (level <= 10) {
+      this.level.innerHTML = level;
+    }
   }
 
   displayMode(mode) {
@@ -46,7 +67,13 @@ class Display {
   }
 
   gameOver() {
-    this.word.innerHTML = "Game Over"
+    this.word.innerHTML = "Game Over";
+    this.timer.innerHTML = "0";
+    this.wordInput.setAttribute("disabled", "true");
+  }
+
+  win() {
+    this.word.innerHTML = "You win!";
     this.wordInput.setAttribute("disabled", "true");
   }
 }

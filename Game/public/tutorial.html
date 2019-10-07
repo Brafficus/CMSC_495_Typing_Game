@@ -1,0 +1,81 @@
+<!--
+/* * * * * * * * * * * * * * * * *
+ *    CMSC 495 6380 Group 2      *
+ * * * * * * * * * * * * * * * * *
+ *
+ * Name: tutorial.html
+ * Authors: Thuan Bui, Christopher Sankey, Nathan Woodson, Danny Ramirez
+ * Description:
+ *
+ */
+
+/* Revision History
+ * 10/6/2019 - Thuan Bui added tutorial to the homepage.
+*/
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CMST 495 6380 Group 2 | Typing Game</title>
+  <link href="https://fonts.googleapis.com/css?family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+  ol li a{ cursor: pointer;  }
+  ol li a:hover{ text-decoration: underline; color: white; }
+  ol li a.active{ background: white; padding: 0 10px; }
+  ol li a.active:hover{ color: #fbcb1c; text-decoration: none;}
+  </style>
+</head>
+
+<body>
+  <div id="wrapper">
+    <div style="position: relative; width: 980px;">
+        <div style="width:38%; float: left; padding-right: 2%;">
+            <h1 class="tutorial-title">Tutorial</h1>
+            <ol>
+              <li><a onclick="changeImage(this, 'lesson_01')" id="item01" class="active">Home Row, Left Hand</a></li>
+              <li><a onclick="changeImage(this, 'lesson_02')">Home Row, Right Hand</a></li>
+              <li><a onclick="changeImage(this, 'lesson_03')">Home Row, Left + Right</a></li>
+              <li><a onclick="changeImage(this, 'lesson_04')">Home Row, Extended Index Fingers</a></li>
+              <li><a onclick="changeImage(this, 'lesson_05')">The Shift Keys</a></li>
+              <li><a onclick="changeImage(this, 'lesson_06')">Quotes and Apostrophe</a></li>
+              <li><a onclick="changeImage(this, 'lesson_07')">Home Row: The Whole Shebang</a></li>
+              <li><a onclick="changeImage(this, 'lesson_08')">Top Row Left: QWERT</a></li>
+              <li><a onclick="changeImage(this, 'lesson_09')">Top Row Right: YUIOP</a></li>
+              <li><a onclick="changeImage(this, 'lesson_10')">It's Lonely at the Top: All Top Row Letters</a></li>
+              <li><a onclick="changeImage(this, 'lesson_11')">Row by Row: Top & Home Rows Combined</a></li>
+              <li><a onclick="changeImage(this, 'lesson_12')">Bottom Row Right: NM,./?</a></li>
+              <li><a onclick="changeImage(this, 'lesson_13')">Bottom Row Left: ZXCVB</a></li>
+              <li><a onclick="changeImage(this, 'lesson_14')">Putting It All Together: Bottom Row</a></li>
+              <li><a onclick="changeImage(this, 'lesson_15')">Letters Consolidation</a></li>
+            </ol>
+	<a class="link" href="index.html">< Return to game </a>
+        </div>
+        <div style="width:60%; float: left;">
+            <div><img src="tutorial/lesson_01.jpg" id="contentImg" /></div>
+        </div>
+    </div>
+    <div style="clear:both;"></div>
+
+    <footer class="footer">
+      <p>Copyright &copy; CMSC 495 6380 Group 2.</p>
+    </footer><!-- end .footer -->
+
+  </div><!-- end #wrapper -->
+</body>
+<script type="text/javascript">
+function changeImage(element, src){
+  var rm = document.getElementsByClassName("active");
+  for (i = 0; i < rm.length; i++) {
+    rm[i].classList.remove("active");
+  }
+
+  element.classList.add("active");
+  document.getElementById("contentImg").src= 'tutorial/'+src+'.jpg';
+}
+</script>
+</html>
