@@ -92,6 +92,7 @@ function levelUp() {
   } else {
     timer.stop();
     display.win();
+    document.getElementById("buttons-finish").style = "display: block";
   }
 }
 

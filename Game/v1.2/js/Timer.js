@@ -57,7 +57,7 @@ class Timer {
     this.started = true;
     
     //run subTime on 1 sec interval
-    setInterval(function() {timer.subTime()}, 1000);
+    setInterval(function() {timer.subTime();}, 1000);
   }
 
   getElapsedTime(){
@@ -74,6 +74,7 @@ class Timer {
     } else if(this.seconds <= 0) {
       //call method to display
       this.display.gameOver();
+      document.getElementById("buttons-finish").style = "display: block";
     }
   }
 }
